@@ -188,7 +188,7 @@ footer span{font-size:14px}
   .fluxo-grid{grid-template-columns:1fr 1fr}
   .perf-grid,.com-grid{grid-template-columns:1fr 1fr}
   .feat-row,.col-grid{grid-template-columns:1fr;gap:32px}
-  .feat-row.invert .shot-wrap{order:-1}
+  .feat-row.invert .shot-wrap{order:1}
   .criterios{grid-template-columns:1fr}
   .criterios ul{grid-template-columns:1fr}
 }
@@ -199,6 +199,29 @@ footer span{font-size:14px}
   .tabela td.mono{font-size:15px}
   .nav .btn{padding:9px 16px;font-size:14px}
 }
+
+/* HERO GRID + ARTE */
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center}
+.hero-art{position:relative;background:#16332A;border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:54px 32px;text-align:center;overflow:hidden}
+.hero-art::before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at 50% 35%,rgba(224,127,58,.22),transparent 55%),radial-gradient(circle at 50% 70%,rgba(62,122,94,.4),transparent 60%);pointer-events:none}
+.hero-art::after{content:"";position:absolute;left:50%;top:44%;width:330px;height:330px;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.09);border-radius:50%;pointer-events:none}
+.hero-art img{position:relative;width:min(300px,82%);margin:14px auto 28px}
+.hero-art .art-label{position:relative;display:inline-block;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ambar);border:1px solid rgba(224,127,58,.5);border-radius:100px;padding:9px 18px}
+.nav-links{display:flex;align-items:center;gap:20px}
+.nav-links a.plain{font-size:14px;color:var(--tinta-suave);text-decoration:none;font-weight:500}
+.nav-links a.plain:hover{color:var(--noite)}
+/* BANDA PROGRAMA */
+.banda{background:var(--mata);color:#fff;padding:76px 0}
+.banda h2{color:#fff;font-size:clamp(30px,4.6vw,48px)}
+.banda p{font-size:18px;color:#D8E5DC;max-width:780px;margin-top:16px}
+.banda .eyebrow{color:var(--ambar)}
+/* CTA STRIP */
+.cta-strip{background:var(--noite)}
+.cta-strip .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:28px;padding-bottom:28px;flex-wrap:wrap}
+.cta-strip span{font-size:17px;font-weight:700;color:#fff}
+.cta-strip .btn{padding:13px 26px;font-size:15px}
+@media (max-width:980px){.hero-grid{grid-template-columns:1fr}.hero-art{max-width:440px;margin:8px auto 0;width:100%}}
+@media (max-width:640px){.nav-links a.plain{display:none}.cta-strip .wrap{justify-content:center;text-align:center}}
 </style>
 </head>
 <body>
@@ -206,18 +229,30 @@ footer span{font-size:14px}
 <header>
   <div class="nav">
     <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-asset="logodark" alt="VMarket Food Solutions">
-    <a class="btn" href="https://tally.so/r/ODEM5M" target="_blank" rel="noopener">Preencher cadastro</a>
+    <div class="nav-links">
+      <a class="plain" href="https://www.vmarket.com.br" target="_blank" rel="noopener">Site VMarket</a>
+      <a class="plain" href="https://www.instagram.com/vmarket_br" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn" href="https://tally.so/r/ODEM5M" target="_blank" rel="noopener">Quero ser parceiro</a>
+    </div>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow">Programa de Parceiros BPO &bull; Rio de Janeiro e São Paulo</span>
+    <div class="hero-grid">
+    <div>
+    <span class="eyebrow">VMarket &bull; Programa de Parceiros BPO</span>
     <h1>Receita recorrente para quem entende de compras no food service</h1>
-    <p class="lead">A VMarket procura consultores, ex-compradores e empresas de back-office para vender e operar a plataforma com os próprios clientes. Você recebe 100% da primeira mensalidade de cada cliente e 20% das seguintes por 12 meses. Sem custo de adesão.</p>
+    <p class="lead">Venda e opere a plataforma VMarket com os seus clientes. Ganhe 100% da primeira mensalidade e 20% por 12 meses. Sem custo de adesão.</p>
     <div class="cta-row">
       <a class="btn" href="https://tally.so/r/ODEM5M" target="_blank" rel="noopener">Quero ser parceiro</a>
       <span class="cta-note">Cadastro em 3 minutos, sem compromisso</span>
+    </div>
+    </div>
+    <div class="hero-art">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-asset="logowhite" alt="VMarket Food Solutions">
+      <span class="art-label">Programa de Parceiros BPO</span>
+    </div>
     </div>
     <div class="stats">
       <div><b>2.000+</b><span>operações food service atendidas</span></div>
@@ -232,6 +267,14 @@ footer span{font-size:14px}
   <div class="wrap rev">
     <p class="eyebrow">Quem já compra pela VMarket todos os dias</p>
     <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-asset="clientes" alt="Clientes VMarket: Fasano, Meliá, Intercity, Bourbon, Pecorino, Parmê, Graal e outros">
+  </div>
+</section>
+
+<section class="banda">
+  <div class="wrap rev">
+    <span class="eyebrow">O que é</span>
+    <h2 style="margin-top:14px">Programa de Parceiros BPO VMarket</h2>
+    <p>A VMarket abre a plataforma, os leads e a comissão para empresas e profissionais que vendem e operam compras para restaurantes, bares e hotéis. Você cuida da carteira, a VMarket entrega a ferramenta e divide a receita.</p>
   </div>
 </section>
 
@@ -251,7 +294,7 @@ footer span{font-size:14px}
 
 <section class="sec fluxo">
   <div class="wrap rev">
-    <span class="eyebrow" style="color:var(--folha)">O programa</span>
+    <span class="eyebrow" style="color:var(--folha)">O Programa BPO</span>
     <h2 style="margin-top:14px">Como funciona, da venda à comissão</h2>
     <p class="sub">Você vende o seu serviço junto com a plataforma VMarket. O cliente paga a assinatura direto para a VMarket e a comissão cai para você todo mês.</p>
     <div class="fluxo-grid">
@@ -264,6 +307,10 @@ footer span{font-size:14px}
     <div class="nota"><strong>Tem mais:</strong> clientes VMarket em risco de cancelamento podem ser repassados para a sua operação. Você assume as compras, o cliente fica, todo mundo ganha.</div>
   </div>
 </section>
+
+<div class="cta-strip">
+  <div class="wrap"><span>Entre no Programa de Parceiros BPO da VMarket</span><a class="btn" href="https://tally.so/r/ODEM5M" target="_blank" rel="noopener">Quero ser parceiro</a></div>
+</div>
 
 <section class="sec incentivos">
   <div class="wrap rev">
@@ -314,7 +361,7 @@ footer span{font-size:14px}
         </tbody>
       </table>
     </div>
-    <p class="obs"><strong>Comissão é só uma parte.</strong> O parceiro também fatura o próprio serviço de implantação, consultoria ou operação de compras, cobrado direto do cliente. A apuração acontece todo dia 1º e o pagamento sai até o dia 5, mediante nota fiscal.</p>
+    <p class="obs"><strong>Comissão é só uma parte.</strong> O parceiro também fatura o próprio serviço de implantação, consultoria ou operação de compras, cobrado direto do cliente. A apuração acontece todo dia 1º e o pagamento sai até o dia 5.</p>
     <div class="cta-row">
       <a class="btn" href="https://tally.so/r/ODEM5M" target="_blank" rel="noopener">Quero simular com meus números</a>
     </div>
@@ -379,6 +426,10 @@ footer span{font-size:14px}
     <p class="fonte">Média dos clientes ativos da VMarket no último ano.</p>
   </div>
 </section>
+
+<div class="cta-strip">
+  <div class="wrap"><span>Opere essa plataforma com a sua carteira de clientes</span><a class="btn" href="https://tally.so/r/ODEM5M" target="_blank" rel="noopener">Quero ser parceiro</a></div>
+</div>
 
 <section class="sec entrega">
   <div class="wrap rev">
@@ -446,7 +497,7 @@ footer span{font-size:14px}
 
 <section class="sec perfis">
   <div class="wrap rev">
-    <span class="eyebrow" style="color:var(--folha)">Quem se encaixa</span>
+    <span class="eyebrow" style="color:var(--folha)">Quem entra no Programa BPO</span>
     <h2 style="margin-top:14px">O programa foi feito para quem já vive esse mercado</h2>
     <div class="perf-grid">
       <div class="perf-card"><h3>Consultor de food service</h3><p>Já assessora restaurantes em operação, gestão e custos. A plataforma vira o braço operacional da sua consultoria.</p></div>
@@ -466,6 +517,10 @@ footer span{font-size:14px}
   </div>
 </section>
 
+<div class="cta-strip">
+  <div class="wrap"><span>Se identificou? O Programa BPO é pra você</span><a class="btn" href="https://tally.so/r/ODEM5M" target="_blank" rel="noopener">Quero ser parceiro</a></div>
+</div>
+
 <section class="sec comecar">
   <div class="wrap rev">
     <span class="eyebrow" style="color:var(--folha)">Próximos passos</span>
@@ -481,7 +536,7 @@ footer span{font-size:14px}
 
 <section class="final">
   <div class="wrap rev">
-    <span class="eyebrow" style="color:#F1D9C2">Vagas por região</span>
+    <span class="eyebrow" style="color:#F1D9C2">Programa de Parceiros BPO VMarket</span>
     <h2 style="margin-top:16px">Estamos selecionando parceiros para o início do programa</h2>
     <p>As vagas abrem por região para não saturar carteira. Preencha o cadastro e nosso time entra em contato para apresentar o modelo completo.</p>
     <a class="btn dark" href="https://tally.so/r/ODEM5M" target="_blank" rel="noopener">Preencher cadastro</a>
@@ -492,7 +547,7 @@ footer span{font-size:14px}
 <footer>
   <div class="wrap">
     <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-asset="logowhite" alt="VMarket Food Solutions">
-    <span>Plataforma de compras para o food service &bull; vmarket.com.br &bull; Rio de Janeiro e São Paulo</span>
+    <span>Programa de Parceiros BPO &bull; Plataforma de compras para o food service &bull; <a href="https://www.vmarket.com.br" target="_blank" rel="noopener" style="color:#CBDCD2">vmarket.com.br</a> &bull; <a href="https://www.instagram.com/vmarket_br" target="_blank" rel="noopener" style="color:#CBDCD2">@vmarket_br</a></span>
   </div>
 </footer>
 
