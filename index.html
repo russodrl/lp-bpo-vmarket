@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programa de Parceiros BPO | VMarket</title>
+<meta name="description" content="Venda e opere a maior plataforma de compras do food service. Comissão de 100% da primeira mensalidade e 20% recorrente por 12 meses. Sem custo de adesão.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noite:#1A3A2F;
+  --mata:#2A5C45;
+  --folha:#3E7A5E;
+  --terra:#C96B2A;
+  --ambar:#E07F3A;
+  --linho:#F5F1EC;
+  --linho-borda:#E7DFD3;
+  --tinta:#23312A;
+  --tinta-suave:#56655D;
+  --verde-claro:#CBDCD2;
+  --branco:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--tinta);background:var(--branco);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.mono{font-family:'DM Mono',monospace}
+.eyebrow{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.12}
+h2{font-size:clamp(28px,4vw,42px);color:var(--noite)}
+.sec{padding:88px 0}
+.sub{font-size:18px;color:var(--tinta-suave);max-width:680px;margin-top:16px}
+.btn{display:inline-block;background:var(--terra);color:#fff;font-weight:700;font-size:17px;padding:16px 34px;border-radius:12px;text-decoration:none;transition:background .18s ease, transform .18s ease}
+.btn:hover{background:#B35E22;transform:translateY(-1px)}
+.btn.dark{background:var(--noite)}
+.btn.dark:hover{background:#143027}
+.micro{font-size:14px;color:var(--tinta-suave);margin-top:12px}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:50;background:rgba(245,241,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--linho-borda)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1140px;margin:0 auto}
+.nav img{height:34px;width:auto}
+.nav .btn{padding:11px 22px;font-size:15px}
+
+/* HERO */
+.hero{background:var(--noite);color:#fff;padding:96px 0 80px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-180px;top:-180px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(62,122,94,.35),transparent 70%);pointer-events:none}
+.hero .eyebrow{color:var(--ambar)}
+.hero h1{font-size:clamp(36px,5.2vw,58px);max-width:820px;margin:22px 0 0;color:#fff}
+.hero p.lead{font-size:19px;color:var(--verde-claro);max-width:700px;margin-top:22px}
+.hero .cta-row{display:flex;align-items:center;gap:22px;margin-top:34px;flex-wrap:wrap}
+.hero .cta-note{font-size:15px;color:#8FA89A}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:64px;padding-top:40px;border-top:1px solid rgba(255,255,255,.12)}
+.stats b{display:block;font-size:clamp(26px,3vw,36px);font-weight:800;color:#fff;letter-spacing:-.02em}
+.stats span{font-size:14px;color:#8FA89A}
+
+/* LOGOS */
+.logos{background:#fff;padding:56px 0;border-bottom:1px solid var(--linho-borda)}
+.logos p{text-align:center}
+.logos img{margin:28px auto 0;max-width:980px;width:100%}
+.logos .eyebrow{color:var(--folha)}
+
+/* MERCADO */
+.mercado{background:var(--linho)}
+.mercado-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.stat-card{background:#fff;border:1px solid var(--linho-borda);border-radius:18px;padding:30px 28px}
+.stat-card b{display:block;font-size:38px;font-weight:800;color:var(--noite);letter-spacing:-.02em}
+.stat-card span{font-size:15px;color:var(--tinta-suave);display:block;margin-top:8px}
+.mercado .fonte{font-size:13px;color:#9AA59E;margin-top:18px}
+.mercado .gancho{margin-top:36px;font-size:19px;max-width:760px;color:var(--tinta)}
+.mercado .gancho strong{color:var(--noite)}
+
+/* COMO FUNCIONA */
+.fluxo{background:#fff}
+.fluxo-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:48px}
+.passo{background:var(--linho);border-radius:16px;padding:24px 20px;position:relative}
+.passo .num{font-family:'DM Mono',monospace;font-size:13px;color:var(--folha);font-weight:500}
+.passo h3{font-size:18px;margin:10px 0 8px;color:var(--noite)}
+.passo p{font-size:14px;color:var(--tinta-suave)}
+.fluxo .nota{margin-top:28px;background:#fff;border:1px dashed var(--folha);border-radius:14px;padding:18px 22px;font-size:15px;color:var(--tinta);max-width:760px}
+
+/* INCENTIVOS */
+.incentivos{background:var(--linho)}
+.inc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:48px}
+.inc-card{background:#fff;border:1px solid var(--linho-borda);border-radius:18px;padding:32px}
+.inc-card .ico{width:46px;height:46px;border-radius:12px;background:var(--noite);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.inc-card .ico svg{width:24px;height:24px;stroke:var(--ambar);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.inc-card h3{font-size:20px;color:var(--noite);margin-bottom:8px}
+.inc-card p{font-size:15px;color:var(--tinta-suave)}
+
+/* GANHOS */
+.ganhos{background:var(--noite);color:#fff}
+.ganhos h2{color:#fff}
+.ganhos .sub{color:var(--verde-claro)}
+.formula{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.formula span{font-family:'DM Mono',monospace;font-size:14px;background:var(--mata);color:#fff;border-radius:100px;padding:10px 20px}
+.formula span b{color:var(--ambar);font-weight:500}
+.tabela{margin-top:36px;border:1px solid rgba(255,255,255,.14);border-radius:18px;overflow:hidden}
+.tabela table{width:100%;border-collapse:collapse}
+.tabela th{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:#8FA89A;text-align:left;padding:16px 26px;background:rgba(255,255,255,.04)}
+.tabela td{padding:18px 26px;border-top:1px solid rgba(255,255,255,.08);font-size:17px}
+.tabela td.mono{font-family:'DM Mono',monospace;font-size:18px;color:#fff}
+.tabela tr.hl td{background:var(--mata)}
+.tabela tr.hl td:first-child{position:relative}
+.tabela .tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;background:var(--ambar);color:var(--noite);border-radius:100px;padding:3px 10px;margin-left:10px;vertical-align:2px}
+.ganhos .obs{margin-top:22px;font-size:15px;color:#8FA89A;max-width:720px}
+.ganhos .obs strong{color:var(--verde-claro)}
+.ganhos .cta-row{margin-top:38px}
+
+/* PLATAFORMA */
+.plataforma{background:#fff}
+.feat-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:72px}
+.feat-row:first-of-type{margin-top:56px}
+.feat-row .eyebrow{color:var(--folha)}
+.feat-row h3{font-size:clamp(22px,2.6vw,30px);color:var(--noite);margin:14px 0 14px}
+.feat-row p{font-size:16px;color:var(--tinta-suave)}
+.feat-row ul{list-style:none;margin-top:18px}
+.feat-row li{font-size:15px;color:var(--tinta);padding:7px 0 7px 30px;position:relative}
+.feat-row li::before{content:"";position:absolute;left:0;top:13px;width:16px;height:16px;border-radius:50%;background:var(--folha);mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat}
+.shot{border-radius:18px;overflow:hidden;border:1px solid var(--linho-borda);box-shadow:0 24px 60px -28px rgba(26,58,47,.35);background:#fff}
+.shot.bar::before{content:"";display:block;height:34px;background:var(--linho);border-bottom:1px solid var(--linho-borda);background-image:radial-gradient(circle 5px at 22px 17px, #D9CFC0 99%, transparent),radial-gradient(circle 5px at 42px 17px, #D9CFC0 99%, transparent),radial-gradient(circle 5px at 62px 17px, #D9CFC0 99%, transparent)}
+.feat-row .telefone{max-width:320px;margin:0 auto;border-radius:36px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(26,58,47,.45)}
+.resultados{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:84px}
+.res-card{background:var(--linho);border-radius:18px;padding:32px 28px;text-align:center}
+.res-card b{display:block;font-size:44px;font-weight:800;color:var(--folha);letter-spacing:-.02em}
+.res-card span{font-size:14px;color:var(--tinta-suave);display:block;margin-top:8px}
+.plataforma .fonte{font-size:13px;color:#9AA59E;margin-top:16px;text-align:center}
+
+/* ENTREGA */
+.entrega{background:var(--linho)}
+.ent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+.ent-card{background:#fff;border:1px solid var(--linho-borda);border-radius:18px;padding:28px}
+.ent-card h3{font-size:18px;color:var(--noite);margin-bottom:8px}
+.ent-card p{font-size:14.5px;color:var(--tinta-suave)}
+
+/* COLETIVA */
+.coletiva{background:#fff}
+.col-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:48px}
+.col-grid svg{width:100%;height:auto}
+.col-grid .bloco h3{font-size:19px;color:var(--noite);margin:22px 0 6px}
+.col-grid .bloco h3:first-child{margin-top:0}
+.col-grid .bloco p{font-size:15px;color:var(--tinta-suave)}
+
+/* PERFIS */
+.perfis{background:var(--linho)}
+.perf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.perf-card{background:#fff;border:1px solid var(--linho-borda);border-radius:18px;padding:26px 22px}
+.perf-card h3{font-size:17px;color:var(--noite);margin-bottom:8px}
+.perf-card p{font-size:14px;color:var(--tinta-suave)}
+.criterios{margin-top:40px;background:var(--noite);border-radius:18px;padding:34px;color:#fff;display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center}
+.criterios .t{font-size:19px;font-weight:700;max-width:240px}
+.criterios ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
+.criterios li{font-size:15px;color:var(--verde-claro);padding-left:28px;position:relative}
+.criterios li::before{content:"";position:absolute;left:0;top:4px;width:15px;height:15px;background:var(--ambar);mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat}
+
+/* COMECAR */
+.comecar{background:#fff}
+.com-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.com-card{border:1px solid var(--linho-borda);border-radius:18px;padding:26px 22px}
+.com-card .num{font-family:'DM Mono',monospace;font-size:13px;color:var(--terra);font-weight:500}
+.com-card h3{font-size:18px;color:var(--noite);margin:10px 0 8px}
+.com-card p{font-size:14px;color:var(--tinta-suave)}
+
+/* CTA FINAL */
+.final{background:var(--terra);color:#fff;text-align:center;padding:96px 0}
+.final h2{color:#fff;max-width:760px;margin:0 auto}
+.final p{font-size:18px;color:#F7E8DA;max-width:620px;margin:20px auto 0}
+.final .btn{margin-top:36px}
+.final .micro{color:#F1D9C2}
+
+/* FOOTER */
+footer{background:var(--noite);color:#8FA89A;padding:34px 0}
+footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer img{height:30px;width:auto}
+footer span{font-size:14px}
+
+/* REVEAL */
+.rev{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+.rev.on{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.rev{opacity:1;transform:none;transition:none}.btn{transition:none}}
+
+@media (max-width:980px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .mercado-grid,.ent-grid,.resultados{grid-template-columns:1fr 1fr}
+  .fluxo-grid{grid-template-columns:1fr 1fr}
+  .perf-grid,.com-grid{grid-template-columns:1fr 1fr}
+  .feat-row,.col-grid{grid-template-columns:1fr;gap:32px}
+  .feat-row.invert .shot-wrap{order:-1}
+  .criterios{grid-template-columns:1fr}
+  .criterios ul{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .sec{padding:64px 0}
+  .mercado-grid,.ent-grid,.resultados,.fluxo-grid,.perf-grid,.com-grid,.inc-grid{grid-template-columns:1fr}
+  .tabela th,.tabela td{padding:13px 16px;font-size:14px}
+  .tabela td.mono{font-size:15px}
+  .nav .btn{padding:9px 16px;font-size:14px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-asset="logodark" alt="VMarket Food Solutions">
+    <a class="btn" href="https://tally.so/r/ODEM5M" target="_blank" rel="noopener">Preencher cadastro</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Programa de Parceiros BPO &bull; Rio de Janeiro e São Paulo</span>
+    <h1>Receita recorrente para quem entende de compras no food service</h1>
+    <p class="lead">A VMarket procura consultores, ex-compradores e empresas de back-office para vender e operar a plataforma com os próprios clientes. Você recebe 100% da primeira mensalidade de cada cliente e 20% das seguintes por 12 meses. Sem custo de adesão.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://tally.so/r/ODEM5M" target="_blank" rel="noopener">Quero ser parceiro</a>
+      <span class="cta-note">Cadastro em 3 minutos, sem compromisso</span>
+    </div>
+    <div class="stats">
+      <div><b>2.000+</b><span>operações food service atendidas</span></div>
+      <div><b>R$ 2 bi+</b><span>movimentados por ano na plataforma</span></div>
+      <div><b>20.000+</b><span>fornecedores cadastrados</span></div>
+      <div><b>+50%</b><span>crescimento ano a ano</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="logos">
+  <div class="wrap rev">
+    <p class="eyebrow">Quem já compra pela VMarket todos os dias</p>
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-asset="clientes" alt="Clientes VMarket: Fasano, Meliá, Intercity, Bourbon, Pecorino, Parmê, Graal e outros">
+  </div>
+</section>
+
+<section class="sec mercado">
+  <div class="wrap rev">
+    <span class="eyebrow" style="color:var(--folha)">A oportunidade</span>
+    <h2 style="margin-top:14px">O mercado é gigante e compra mal</h2>
+    <div class="mercado-grid">
+      <div class="stat-card"><b>R$ 184 bi</b><span>movimentados por ano em compras no food service brasileiro</span></div>
+      <div class="stat-card"><b>30 a 40%</b><span>do faturamento de um restaurante vai para compra de insumos</span></div>
+      <div class="stat-card"><b>10 a 15%</b><span>do gasto se perde em compras mal feitas e estoque parado</span></div>
+    </div>
+    <p class="fonte">Fontes: Abia, Abrasel, Neoway e levantamento VMarket com base na carteira de clientes.</p>
+    <p class="gancho">Seu cliente sente isso toda semana: <strong>10 a 20 horas de cotação por WhatsApp</strong>, preço fechado sem comparação e nenhum dado para negociar. Essa é a dor que você passa a resolver com ferramenta, processo e comissão.</p>
+  </div>
+</section>
+
+<section class="sec fluxo">
+  <div class="wrap rev">
+    <span class="eyebrow" style="color:var(--folha)">O programa</span>
+    <h2 style="margin-top:14px">Como funciona, da venda à comissão</h2>
+    <p class="sub">Você vende o seu serviço junto com a plataforma VMarket. O cliente paga a assinatura direto para a VMarket e a comissão cai para você todo mês.</p>
+    <div class="fluxo-grid">
+      <div class="passo"><span class="num">01</span><h3>Prospecção</h3><p>Você prospecta a própria carteira ou recebe leads da VMarket direto no Pipedrive.</p></div>
+      <div class="passo"><span class="num">02</span><h3>Venda</h3><p>Oferece o combo: seu serviço de compras + plataforma VMarket com desconto exclusivo.</p></div>
+      <div class="passo"><span class="num">03</span><h3>Assinatura</h3><p>O cliente assina e paga boleto direto para a VMarket. Sem cobrança passando por você.</p></div>
+      <div class="passo"><span class="num">04</span><h3>Comissão</h3><p>VMarket repassa 100% do mês 1 e 20% dos meses 2 a 12 para você.</p></div>
+      <div class="passo"><span class="num">05</span><h3>Operação</h3><p>Você opera as compras na plataforma e participa de cotações coletivas com sua carteira.</p></div>
+    </div>
+    <div class="nota"><strong>Tem mais:</strong> clientes VMarket em risco de cancelamento podem ser repassados para a sua operação. Você assume as compras, o cliente fica, todo mundo ganha.</div>
+  </div>
+</section>
+
+<section class="sec incentivos">
+  <div class="wrap rev">
+    <span class="eyebrow" style="color:var(--folha)">Por que vale a pena</span>
+    <h2 style="margin-top:14px">Quatro incentivos desenhados para o parceiro</h2>
+    <div class="inc-grid">
+      <div class="inc-card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Preço abaixo do mercado para o seu cliente</h3>
+        <p>Assinatura VMarket com desconto exclusivo para clientes de parceiros. Você chega com proposta mais forte e o ROI do cliente aparece mais rápido.</p>
+      </div>
+      <div class="inc-card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg></div>
+        <h3>Comissão recorrente por 12 meses</h3>
+        <p>100% da primeira mensalidade e 20% das próximas 11. Receita imediata na venda e fluxo previsível durante o primeiro ano de cada cliente.</p>
+      </div>
+      <div class="inc-card">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0-3-3.85"/></svg></div>
+        <h3>Compra coletiva da sua carteira</h3>
+        <p>Você consolida a demanda de vários clientes numa cotação só. Mais volume, fornecedor responde com preço melhor e sua retenção sobe.</p>
+      </div>
+      <div class="inc-card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg></div>
+        <h3>Leads e treinamento sem custo</h3>
+        <p>Operações menores que chegam na VMarket caem direto no seu Pipedrive, sem custo. Treinamento de venda e demonstração da plataforma incluídos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec ganhos">
+  <div class="wrap rev">
+    <span class="eyebrow" style="color:var(--ambar)">Quanto você ganha</span>
+    <h2 style="margin-top:14px">Faça a conta com a sua carteira</h2>
+    <p class="sub">Simulação só com a comissão VMarket, sobre assinatura sugerida de R$ 399/mês. O que você cobra pelo seu serviço de BPO fica 100% com você, por fora.</p>
+    <div class="formula">
+      <span>Mês 1 &rarr; <b>100% da mensalidade</b></span>
+      <span>Meses 2 a 12 &rarr; <b>20% da mensalidade</b></span>
+    </div>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Clientes ativos</th><th>Receita no ano 1</th><th>Média mensal</th></tr></thead>
+        <tbody>
+          <tr><td>5 clientes</td><td class="mono">R$ 6.384</td><td class="mono">R$ 532/mês</td></tr>
+          <tr><td>10 clientes</td><td class="mono">R$ 12.768</td><td class="mono">R$ 1.064/mês</td></tr>
+          <tr class="hl"><td>20 clientes<span class="tag">carteira típica</span></td><td class="mono">R$ 25.536</td><td class="mono">R$ 2.128/mês</td></tr>
+          <tr><td>50 clientes</td><td class="mono">R$ 63.840</td><td class="mono">R$ 5.320/mês</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="obs"><strong>Comissão é só uma parte.</strong> O parceiro também fatura o próprio serviço de implantação, consultoria ou operação de compras, cobrado direto do cliente. A apuração acontece todo dia 1º e o pagamento sai até o dia 5, mediante nota fiscal.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://tally.so/r/ODEM5M" target="_blank" rel="noopener">Quero simular com meus números</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec plataforma">
+  <div class="wrap">
+    <div class="rev">
+      <span class="eyebrow" style="color:var(--folha)">A ferramenta</span>
+      <h2 style="margin-top:14px">A plataforma que você vai operar</h2>
+      <p class="sub">Tudo que hoje é telefone, planilha e papel vira processo dentro da VMarket. Você opera para vários clientes ao mesmo tempo, com dado e histórico.</p>
+    </div>
+
+    <div class="feat-row rev">
+      <div>
+        <span class="eyebrow">Cotação consolidada</span>
+        <h3>Todos os fornecedores numa tela só</h3>
+        <p>A mesma cotação dispara para todos os fornecedores do cliente. As respostas chegam consolidadas no painel e o melhor preço de cada item já vem marcado.</p>
+        <ul>
+          <li>Preço, prazo de pagamento e condição lado a lado</li>
+          <li>Seleção do ganhador item a item ou em lote</li>
+          <li>Decisão de compra em minutos, não em dias</li>
+        </ul>
+      </div>
+      <div class="shot-wrap"><div class="shot bar"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-asset="painel" alt="Painel de cotação consolidada da VMarket"></div></div>
+    </div>
+
+    <div class="feat-row invert rev">
+      <div class="shot-wrap"><div class="shot"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-asset="whats" alt="Fluxo de cotação automática via WhatsApp"></div></div>
+      <div>
+        <span class="eyebrow">Cotação por WhatsApp</span>
+        <h3>O fornecedor responde pelo celular dele</h3>
+        <p>Um clique dispara a cotação por WhatsApp e e-mail. O fornecedor preenche preço, prazo e condição num link, sem ligação e sem áudio. A resposta cai no painel sem digitação.</p>
+        <ul>
+          <li>Tempo médio de cotação: 2 horas, mesmo com 50 fornecedores</li>
+          <li>Zero retrabalho de digitação para a sua equipe</li>
+          <li>Histórico de preços salvo automaticamente</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feat-row rev">
+      <div>
+        <span class="eyebrow">App de solicitação e estoque</span>
+        <h3>Da cozinha ao recebimento, tudo no celular</h3>
+        <p>A cozinha do cliente solicita insumos pelo app. Você (ou o gestor) aprova, o pedido sai e o recebimento é conferido com foto e laudo de divergência.</p>
+        <ul>
+          <li>Aprovação por alçadas, ideal para hotéis e multi-CNPJ</li>
+          <li>Divergência de peso, preço e avaria registrada na hora</li>
+          <li>Estoque atualizado em tempo real</li>
+        </ul>
+      </div>
+      <div class="shot-wrap"><div class="telefone"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-asset="app" alt="Aplicativo VMarket de solicitação e estoque"></div></div>
+    </div>
+
+    <div class="resultados rev">
+      <div class="res-card"><b>12%</b><span>economia média no CMV dos clientes ativos</span></div>
+      <div class="res-card"><b>60%</b><span>menos tempo em cotação e conferência</span></div>
+      <div class="res-card"><b>100%</b><span>de visibilidade de gasto, fornecedor e produto</span></div>
+    </div>
+    <p class="fonte">Média dos clientes ativos da VMarket no último ano.</p>
+  </div>
+</section>
+
+<section class="sec entrega">
+  <div class="wrap rev">
+    <span class="eyebrow" style="color:var(--folha)">Estrutura completa</span>
+    <h2 style="margin-top:14px">O que você recebe ao entrar</h2>
+    <div class="ent-grid">
+      <div class="ent-card"><h3>Plataforma VMarket</h3><p>Cotação automatizada, gestão de estoque, curva ABC e integração com ERPs como Totvs e OMIE.</p></div>
+      <div class="ent-card"><h3>Leads no seu Pipedrive</h3><p>Operações fora do nosso perfil de atendimento direto vão para a sua carteira, sem custo.</p></div>
+      <div class="ent-card"><h3>Treinamento de venda</h3><p>Pitch, tratamento de objeções e demonstração da plataforma para vender o combo BPO + VMarket.</p></div>
+      <div class="ent-card"><h3>Acesso ao CRM</h3><p>Pipedrive compartilhado para acompanhar pipeline, contratos assinados e evolução da carteira.</p></div>
+      <div class="ent-card"><h3>Material de venda pronto</h3><p>Apresentação personalizável com a sua marca, vídeos, cases reais e tabela de economia.</p></div>
+      <div class="ent-card"><h3>Suporte direto</h3><p>Canal dedicado com a equipe VMarket para dúvidas técnicas e comerciais.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec coletiva">
+  <div class="wrap rev">
+    <span class="eyebrow" style="color:var(--folha)">Efeito de rede</span>
+    <h2 style="margin-top:14px">Cotação coletiva: sua carteira vira poder de barganha</h2>
+    <div class="col-grid">
+      <div>
+        <svg viewBox="0 0 520 330" role="img" aria-label="Diagrama: clientes isolados negociando sozinhos versus carteira consolidada pelo parceiro BPO">
+          <text x="20" y="28" font-family="DM Mono, monospace" font-size="13" fill="#9AA59E" letter-spacing="2">HOJE</text>
+          <g font-family="DM Sans, sans-serif" font-size="12">
+            <rect x="20" y="48" width="92" height="30" rx="8" fill="#F5F1EC" stroke="#E7DFD3"/><text x="66" y="67" text-anchor="middle" fill="#56655D">Cliente 1</text>
+            <rect x="20" y="88" width="92" height="30" rx="8" fill="#F5F1EC" stroke="#E7DFD3"/><text x="66" y="107" text-anchor="middle" fill="#56655D">Cliente 2</text>
+            <rect x="20" y="128" width="92" height="30" rx="8" fill="#F5F1EC" stroke="#E7DFD3"/><text x="66" y="147" text-anchor="middle" fill="#56655D">Cliente 3</text>
+            <rect x="180" y="48" width="110" height="30" rx="8" fill="#F5F1EC" stroke="#E7DFD3"/><text x="235" y="67" text-anchor="middle" fill="#56655D">Fornecedor A</text>
+            <rect x="180" y="88" width="110" height="30" rx="8" fill="#F5F1EC" stroke="#E7DFD3"/><text x="235" y="107" text-anchor="middle" fill="#56655D">Fornecedor B</text>
+            <rect x="180" y="128" width="110" height="30" rx="8" fill="#F5F1EC" stroke="#E7DFD3"/><text x="235" y="147" text-anchor="middle" fill="#56655D">Fornecedor C</text>
+            <line x1="112" y1="63" x2="180" y2="63" stroke="#D9CFC0" stroke-width="2"/>
+            <line x1="112" y1="103" x2="180" y2="103" stroke="#D9CFC0" stroke-width="2"/>
+            <line x1="112" y1="143" x2="180" y2="143" stroke="#D9CFC0" stroke-width="2"/>
+            <text x="310" y="106" font-size="12" fill="#9AA59E">pouca barganha</text>
+          </g>
+          <text x="20" y="208" font-family="DM Mono, monospace" font-size="13" fill="#3E7A5E" letter-spacing="2">COM VOCÊ + VMARKET</text>
+          <g font-family="DM Sans, sans-serif" font-size="12">
+            <rect x="20" y="228" width="92" height="30" rx="8" fill="#fff" stroke="#CBDCD2"/><text x="66" y="247" text-anchor="middle" fill="#23312A">Cliente 1</text>
+            <rect x="20" y="268" width="92" height="30" rx="8" fill="#fff" stroke="#CBDCD2"/><text x="66" y="287" text-anchor="middle" fill="#23312A">Cliente 2</text>
+            <rect x="120" y="228" width="92" height="30" rx="8" fill="#fff" stroke="#CBDCD2"/><text x="166" y="247" text-anchor="middle" fill="#23312A">Cliente 3</text>
+            <rect x="120" y="268" width="92" height="30" rx="8" fill="#fff" stroke="#CBDCD2"/><text x="166" y="287" text-anchor="middle" fill="#23312A">Cliente 4</text>
+            <rect x="248" y="244" width="100" height="40" rx="10" fill="#1A3A2F"/><text x="298" y="269" text-anchor="middle" fill="#fff" font-weight="700">Você (BPO)</text>
+            <line x1="212" y1="248" x2="248" y2="260" stroke="#3E7A5E" stroke-width="2"/>
+            <line x1="212" y1="283" x2="248" y2="270" stroke="#3E7A5E" stroke-width="2"/>
+            <line x1="112" y1="243" x2="120" y2="243" stroke="#3E7A5E" stroke-width="2"/>
+            <line x1="112" y1="283" x2="120" y2="283" stroke="#3E7A5E" stroke-width="2"/>
+            <line x1="348" y1="264" x2="392" y2="264" stroke="#C96B2A" stroke-width="3"/>
+            <rect x="392" y="244" width="108" height="40" rx="10" fill="#C96B2A"/><text x="446" y="269" text-anchor="middle" fill="#fff" font-weight="700">Fornecedor</text>
+            <text x="392" y="306" font-size="12" fill="#C96B2A" font-weight="700">volume agregado</text>
+          </g>
+        </svg>
+      </div>
+      <div class="bloco">
+        <h3>Mais volume com o mesmo trabalho</h3>
+        <p>Você consolida a demanda de vários clientes numa cotação só. O esforço operacional é o mesmo, o volume para o fornecedor é muito maior.</p>
+        <h3>Preço melhor para todo mundo</h3>
+        <p>Com volume agregado, o fornecedor responde com preço mais agressivo. A economia de CMV dos seus clientes cresce e vira o seu melhor argumento de venda.</p>
+        <h3>Retenção que protege sua receita</h3>
+        <p>Quanto mais a carteira cresce, mais barganha você tem. Sair do pool custa caro para o cliente, então ele fica. E a sua comissão recorrente também.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec perfis">
+  <div class="wrap rev">
+    <span class="eyebrow" style="color:var(--folha)">Quem se encaixa</span>
+    <h2 style="margin-top:14px">O programa foi feito para quem já vive esse mercado</h2>
+    <div class="perf-grid">
+      <div class="perf-card"><h3>Consultor de food service</h3><p>Já assessora restaurantes em operação, gestão e custos. A plataforma vira o braço operacional da sua consultoria.</p></div>
+      <div class="perf-card"><h3>Ex-comprador de rede</h3><p>Sabe negociar com fornecedor e conhece o fluxo de cotação. Transforma essa experiência em carteira própria.</p></div>
+      <div class="perf-card"><h3>Empresa de back-office</h3><p>Já presta serviço financeiro ou operacional para restaurantes e hotéis. Compras entra como nova linha de receita.</p></div>
+      <div class="perf-card"><h3>Profissional do setor</h3><p>Chef, gestor ou gerente com rede de contatos e tempo para dedicar. Começa com poucos clientes e escala.</p></div>
+    </div>
+    <div class="criterios">
+      <div class="t">Você se encaixa se:</div>
+      <ul>
+        <li>Conhece compras, cotação e fornecedores do food service</li>
+        <li>Tem rede de contatos com restaurantes, bares ou hotéis</li>
+        <li>Tem disponibilidade para operar a plataforma e atender a carteira</li>
+        <li>Quer construir receita recorrente sem custo de aquisição</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec comecar">
+  <div class="wrap rev">
+    <span class="eyebrow" style="color:var(--folha)">Próximos passos</span>
+    <h2 style="margin-top:14px">Do cadastro à primeira venda em semanas</h2>
+    <div class="com-grid">
+      <div class="com-card"><span class="num">PASSO 1</span><h3>Cadastro</h3><p>Preencha o formulário com os dados da sua empresa e da sua experiência. Leva 3 minutos.</p></div>
+      <div class="com-card"><span class="num">PASSO 2</span><h3>Conversa</h3><p>Nosso time valida o seu perfil, a sua carteira e alinha o modelo de comissão.</p></div>
+      <div class="com-card"><span class="num">PASSO 3</span><h3>Onboarding</h3><p>Acesso ao Pipedrive, treinamento de venda e demonstração da plataforma na primeira semana.</p></div>
+      <div class="com-card"><span class="num">PASSO 4</span><h3>Primeiras vendas</h3><p>Você começa a prospectar a carteira própria e a receber leads da VMarket.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap rev">
+    <span class="eyebrow" style="color:#F1D9C2">Vagas por região</span>
+    <h2 style="margin-top:16px">Estamos selecionando parceiros para o início do programa</h2>
+    <p>As vagas abrem por região para não saturar carteira. Preencha o cadastro e nosso time entra em contato para apresentar o modelo completo.</p>
+    <a class="btn dark" href="https://tally.so/r/ODEM5M" target="_blank" rel="noopener">Preencher cadastro</a>
+    <p class="micro">3 minutos &bull; sem custo de adesão &bull; sem compromisso</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-asset="logowhite" alt="VMarket Food Solutions">
+    <span>Plataforma de compras para o food service &bull; vmarket.com.br &bull; Rio de Janeiro e São Paulo</span>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+</script>
+<script src="asset_logodark.js"></script><script src="asset_logowhite.js"></script><script src="asset_clientes.js"></script><script src="asset_painel.js"></script><script src="asset_whats.js"></script><script src="asset_app.js"></script><script>document.querySelectorAll("img[data-asset]").forEach(function(i){if(window.ASSETS&&window.ASSETS[i.dataset.asset])i.src=window.ASSETS[i.dataset.asset]});</script>
+</body>
+</html>
